@@ -4,8 +4,8 @@ This repo is scraping a specific page using selenium web driver.
 
 #### How to run
 
-- git clone <https://github.com/eaintlayhmone/web-scraping> <your directory>
-- cd <your directory>
+- git clone <https://github.com/eaintlayhmone/web-scraping> your dir
+- cd your dir
 - pip install -r requirements.txt
 - run **main.py**
 
