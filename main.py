@@ -35,7 +35,7 @@ def scraper_pipeline(keyword):
 if __name__ == '__main__':
     driver = webdriver.Chrome()
     driver.set_page_load_timeout(30)
-    keywords = ["Acrylamide","Triclosan","Tributyl phosphate"]
+    keywords = ["Triclosan","Tributyl phosphate","Acrylamide",]
     #login
     login_user(driver)
     for keyword in keywords:

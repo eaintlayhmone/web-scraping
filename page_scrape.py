@@ -7,8 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-
-
 def scrape_each_page(driver,url,product_name):
     driver.set_page_load_timeout(30)
     try :
@@ -22,18 +20,21 @@ def scrape_each_page(driver,url,product_name):
     # ...
     sleep(5)
     # Find elements containing the desired information
-    product_type_element = find_elem(driver,By.XPATH,"//div[contains(., 'Product Type')]/following-sibling::div")
-    chemical_composition_element = find_elem(driver,By.XPATH,"//div[contains(., 'Chemical Composition')]/following-sibling::div")
-    #product_staus_element = find_elem(driver,By.XPATH,"//div[contains(., 'Product Status')]/following-sibling::div")
-     # Extract the text from the elements
-    product_type = product_type_element.text.strip()
-    chemical_composition = chemical_composition_element.text.strip()
     #product_status = product_staus_element.text.strip()
     try:
         application_element = find_elem(driver,By.XPATH,"//div[contains(., 'Applications/ Recommended for')]/following-sibling::div")
+        product_type_element = find_elem(driver,By.XPATH,"//div[contains(., 'Product Type')]/following-sibling::div")
+        chemical_composition_element = find_elem(driver,By.XPATH,"//div[contains(., 'Chemical Composition')]/following-sibling::div")
+        #product_staus_element = find_elem(driver,By.XPATH,"//div[contains(., 'Product Status')]/following-sibling::div")
+        # Extract the text from the elements
+        product_type = product_type_element.text.strip()
+        chemical_composition = chemical_composition_element.text.strip()
         application = application_element.text.strip()
     except:
+        product_type ="-"
+        chemical_composition = "-"
         application = "-"
+
 
    
 
