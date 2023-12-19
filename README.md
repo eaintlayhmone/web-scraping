@@ -6,9 +6,10 @@ This repo is scraping a specific page using selenium web driver.
 
 - git clone <https://github.com/eaintlayhmone/web-scraping> <your directory>
 - cd <your directory>
+- pip install -r requirements.txt
 - run **main.py**
 
-#### Ouput 
+#### Output 
 
 -  number of excel files depend on keywords you give
 
