@@ -32,8 +32,8 @@ def find_elem(instance,attr,val,elems=False,wait=10):
 def login_user(driver):
     #login_url = "https://polymer-additives.specialchem.com/ajax/login?ajax=4&targetitem={393369BF-5D53-4365-87C2-D75F878856FA}&withcs=1&gaSource=Selector"
     login_url = "https://polymer-additives.specialchem.com/login"
-    username = "mumu@doctoral.jp"
-    password = "ebp123ebp"
+    username = "minkhant@utycc.edu.mm"
+    password = "mk@25699"
     try :
         driver.get(login_url)
         print("URL successfully Accessed")

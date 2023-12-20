@@ -22,7 +22,7 @@ def scrape_link(driver,keyword):
     
 
     print(driver.title)
-
+    product_lst = []
     search_bar = find_elem(driver,By.NAME,"keyword")
     sleep(3)
     search_bar.clear()

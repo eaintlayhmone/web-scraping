@@ -15,8 +15,7 @@ def scraper_pipeline(keyword):
     if urls_to_scrape == "None":
         print("No items found")
         driver.quit()
-    print("link scraping done")
-    print(len(urls_to_scrape))
+    print(keyword , urls_to_scrape)
 
     # Content Scraping
     for link in urls_to_scrape:
@@ -35,12 +34,12 @@ def scraper_pipeline(keyword):
 if __name__ == '__main__':
     driver = webdriver.Chrome()
     driver.set_page_load_timeout(30)
-    keywords = ["Triclosan","Tributyl phosphate","Acrylamide",]
+    search_keywords = ["Triclosan","Tributyl phosphate","Acrylamide"]
     #login
     login_user(driver)
-    for keyword in keywords:
+    for search_keyword in search_keywords:
         start=time.time()
-        scraper_pipeline(keyword)
+        scraper_pipeline(search_keyword)
         end = time.time()-start
         print("Duration :",end)
 

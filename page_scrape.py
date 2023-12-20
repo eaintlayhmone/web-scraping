@@ -22,24 +22,29 @@ def scrape_each_page(driver,url,product_name):
     # Find elements containing the desired information
     #product_status = product_staus_element.text.strip()
     try:
-        application_element = find_elem(driver,By.XPATH,"//div[contains(., 'Applications/ Recommended for')]/following-sibling::div")
         product_type_element = find_elem(driver,By.XPATH,"//div[contains(., 'Product Type')]/following-sibling::div")
-        chemical_composition_element = find_elem(driver,By.XPATH,"//div[contains(., 'Chemical Composition')]/following-sibling::div")
-        #product_staus_element = find_elem(driver,By.XPATH,"//div[contains(., 'Product Status')]/following-sibling::div")
-        # Extract the text from the elements
         product_type = product_type_element.text.strip()
+    except:
+        product_type = '-'
+    try:
+        chemical_composition_element = find_elem(driver,By.XPATH,"//div[contains(., 'Chemical Composition')]/following-sibling::div")
         chemical_composition = chemical_composition_element.text.strip()
+    except:
+        chemical_composition = '-'
+    sleep(3)
+    #print(driver.current_url)
+    #print("page source", driver.page_source)
+    try:
+        application_element = find_elem(driver,By.XPATH,"//div[contains(., 'Applications/ Recommended for')]/following-sibling::div")
+        #application_element = find_elem(driver,By.XPATH,"//div[contains(., 'Applications/ Recommended for')]/following-sibling::div")
+        print("Application is ______________________________",application_element)
         application = application_element.text.strip()
     except:
-        product_type ="-"
-        chemical_composition = "-"
         application = "-"
-
-
    
 
     # Output the extracted information
-    print(f"[{product_type}, {chemical_composition}, {application}]")
+    print(f"[{product_type}, {chemical_composition}],{application}")
 
     #access_link = find_elem(driver,By.CLASS_NAME,"bt_cta_1")
 
