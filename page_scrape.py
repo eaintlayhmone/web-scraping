@@ -5,9 +5,11 @@ from utils import find_elem
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
 
 
-def scrape_each_page(driver,url,product_name):
+
+def scrape_each_page(driver:webdriver.Chrome,url,product_name):
     driver.set_page_load_timeout(30)
     try :
         driver.get(url)
@@ -20,7 +22,6 @@ def scrape_each_page(driver,url,product_name):
     # ...
     sleep(5)
     # Find elements containing the desired information
-    #product_status = product_staus_element.text.strip()
     try:
         product_type_element = find_elem(driver,By.XPATH,"//div[contains(., 'Product Type')]/following-sibling::div")
         product_type = product_type_element.text.strip()
@@ -31,20 +32,16 @@ def scrape_each_page(driver,url,product_name):
         chemical_composition = chemical_composition_element.text.strip()
     except:
         chemical_composition = '-'
-    sleep(3)
-    #print(driver.current_url)
-    #print("page source", driver.page_source)
     try:
         application_element = find_elem(driver,By.XPATH,"//div[contains(., 'Applications/ Recommended for')]/following-sibling::div")
-        #application_element = find_elem(driver,By.XPATH,"//div[contains(., 'Applications/ Recommended for')]/following-sibling::div")
-        print("Application is ______________________________",application_element)
         application = application_element.text.strip()
     except:
         application = "-"
+
    
 
     # Output the extracted information
-    print(f"[{product_type}, {chemical_composition}],{application}")
+    print(f"[{product_type}, {chemical_composition}, {application}]")
 
     #access_link = find_elem(driver,By.CLASS_NAME,"bt_cta_1")
 

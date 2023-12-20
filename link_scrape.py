@@ -6,23 +6,24 @@ from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utils import *
-product_lst =[]
+username = "minkhant@utycc.edu.mm"
 
 
-
-def scrape_link(driver,keyword):
+def scrape_link(driver:webdriver.Chrome,keyword):
     print("Keyword is ", keyword)
     driver.set_page_load_timeout(30)
+    cookies = driver.get_cookies()
+    for cookie in cookies:
+        driver.add_cookie(cookie)
     try :
         driver.get('http://polymer-additives.specialchem.com/')
         print("URL successfully Accessed")
     except :
         print("Page load Timeout Occured. Quiting !!!")
         driver.quit()
-    
-
-    print(driver.title)
     product_lst = []
+    print(driver.title)
+
     search_bar = find_elem(driver,By.NAME,"keyword")
     sleep(3)
     search_bar.clear()
